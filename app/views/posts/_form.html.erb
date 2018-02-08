@@ -32,6 +32,16 @@
     <%= form.select :status, Post.statuses.keys, selected: @post.status %>
   </div>
 
+  <div class="field">
+    <%= form.label :author_id %><br>
+    <!--%= form.select :author_id, Author.statuses.keys, selected: @post.status %-->
+    <%= form.select :author_id,
+        options_for_select(Author.all.collect {|a| ["#{a.lname},
+        #{a.fname}", a.id]},
+        selected: (@post.author ? @post.author.id : Author.first.id)),
+        {} %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

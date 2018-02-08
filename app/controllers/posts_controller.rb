@@ -25,7 +25,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    author = Author.find(post_params[:author_id])
+    @post.build_author(:id  => author.id)
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -69,7 +70,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :article, :likes, :status)
+      params.require(:post).permit(:title, :article, :likes, :status, :author_id)
     end
 
     def set_statuses
