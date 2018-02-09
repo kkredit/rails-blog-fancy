@@ -5,9 +5,11 @@ one:
   article: MyText MyText MyText MyText
   likes: 1
   status: 1
+  author: one
 
 two:
   title: MyString
   article: MyText MyText MyText MyText
   likes: 1
   status: 1
+  author: two

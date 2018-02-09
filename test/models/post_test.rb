@@ -2,7 +2,8 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   def setup
-    @post = Post.create(title: "a title", article: "this is an actual text of our article. It can be rather long.", likes: 0, status: 1)
+    @post = posts(:one)
+    @author = authors(:one)
   end
 
   test "post must be valid" do

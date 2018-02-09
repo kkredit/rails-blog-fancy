@@ -17,7 +17,7 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create author" do
     assert_difference('Author.count') do
-      post authors_url, params: { author: { email: @author.email, fname: @author.fname, lname: @author.lname, thumbnail: @author.thumbnail } }
+      post authors_url, params: { author: { email: "unique@example.com", fname: @author.fname, lname: @author.lname, thumbnail: @author.thumbnail } }
     end
 
     assert_redirected_to author_url(Author.last)
